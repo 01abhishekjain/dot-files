@@ -27,8 +27,8 @@ Plug '/usr/local/opt/fzf'
 call plug#end()
 
 " Specify a color scheme
-" colorscheme monokai
-colorscheme gruvbox
+colorscheme vim-monokai
+" colorscheme gruvbox
 
 " Specify auto fixer configurations
 let g:ale_fixers = {'html': [], 'javascript': ['prettier-eslint'], 'scss': ['stylelint', 'prettier'], 'vue': ['prettier'], 'json': ['prettier']}
@@ -39,7 +39,7 @@ let g:ale_pattern_options = {
 \}
 
 " Specify config for the ctrlp.vim plugin
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,package-lock.json
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*
 
 " Set indentation
 set tabstop=2
@@ -80,15 +80,22 @@ let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
 " let g:airline#extensions#tabline#buffer_min_count = 2
 " airline config -------------------------
 
-" enable mouse
-" set mouse=a
 
 " key mappings
-nmap <c-s> :w<cr>
-imap <c-s> <esc>:w<cr>a
+" nmap <c-s> :w<cr>
+" imap <c-s> <esc>:w<cr>a
+" nnoremap <c-s> :w<CR> # normal mode: save
+" inoremap <c-s> <Esc>:w<CR>l # insert mode: escape to normal and save
+" vnoremap <c-s> <Esc>:w<CR> # visual mode: escape to normal and save
+
+" center screen on searches
 nnoremap n nzz
 nnoremap N Nzz
+
+" always have 5 lines of breathing space at the top and bottom
 set scrolloff=5
+
+" prevent opening of the ex mode
 nnoremap Q <nop>
 
 " only search for file contents using Ag, not the file name
