@@ -39,7 +39,7 @@ let g:ale_pattern_options = {
 \}
 
 " Specify config for the ctrlp.vim plugin
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*,*/platforms/ios/*,*/platforms/android/*
 
 " Set indentation
 set tabstop=2
@@ -55,7 +55,7 @@ set relativenumber
 set encoding=UTF-8
 
 " auto open NERDTree on new tab with the current file's path
-autocmd BufWinEnter * NERDTreeFind
+" autocmd BufWinEnter * NERDTreeFind
 
 " airline config -------------------------
 let g:airline_section_x = '' " dont show the file extension
@@ -101,3 +101,10 @@ nnoremap Q <nop>
 " only search for file contents using Ag, not the file name
 " https://github.com/junegunn/fzf.vim/issues/346
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
+
+nmap <leader>e :edit<CR>
+nmap <leader>n :NERDTreeFind
+nmap <leader>a :Ag <C-R>0<CR>
+
+" enable mouse
+set mouse=a
